@@ -1,0 +1,304 @@
+/* Переменные для повторяющихся значений */
+:root {
+  --font-family: 'Roboto', sans-serif;
+  --font-size-base: 22px;
+  --font-size-placeholder: 16px;
+  --color-background: white;
+  --color-border: #ccc;
+  --color-border-focus: #05AC6A;
+  --color-text: #333;
+  --color-text-placeholder: #000;
+  --color-text-placeholder-focus: #05AC6A;
+  --color-button: #05AC6A;
+  --color-button-hover: #555;
+  --color-button-disabled: #6F6F6F;
+  --color-link: #1EA8E1;
+  --color-file-text: #777;
+  --shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+  --color-button-white: white
+}
+
+/* Общие стили для формы */
+.form {
+  background-color: var(--color-background);
+  padding: 20px 55px;
+  border-radius: var(--border-radius);
+  max-width: 628px;
+  margin: 20px auto;
+  box-shadow: var(--shadow);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  min-height: 750px;
+}
+
+/* Заголовок формы */
+.form__title {
+  font-size: var(--font-size-base);
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--color-text);
+}
+
+/* Обертка для инпутов и текстовой области */
+.form__input-wrapper,
+.form__textarea-wrapper {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form__textarea-wrapper {
+  margin-top: 42px;
+}
+
+/* Стили для инпутов и текстовой области */
+.form__input,
+.form__textarea {
+  width: 100%;
+  padding: 23px 10px 5px 10px;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--font-size-base);
+  box-sizing: border-box;
+  height: 55px;
+  line-height: 1;
+}
+
+/* Стили для текстовой области */
+.form__textarea {
+  height: 100px;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 10px;
+}
+
+/* Стили при фокусе */
+.form__input:focus,
+.form__textarea:focus {
+  outline: none;
+  border-bottom: 1px solid var(--color-border-focus);
+}
+
+/* Плейсхолдеры */
+.form__input::placeholder,
+.form__textarea::placeholder {
+  color: transparent;
+}
+
+.form__input-placeholder,
+.form__textarea-placeholder {
+  position: absolute;
+  left: 10px;
+  font-size: var(--font-size-base);
+  color: var(--color-text-placeholder);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.form__input-placeholder {
+  top: 20px;
+}
+
+.form__textarea-placeholder {
+  top: 0;
+}
+
+.form__input:focus + .form__input-placeholder,
+.form__textarea:focus + .form__textarea-placeholder,
+.form__input:not(:placeholder-shown) + .form__input-placeholder,
+.form__textarea:not(:placeholder-shown) + .form__textarea-placeholder {
+  font-size: var(--font-size-placeholder);
+  color: var(--color-text-placeholder-focus);
+}
+
+.form__input:focus + .form__input-placeholder,
+.form__input:not(:placeholder-shown) + .form__input-placeholder {
+  top: 0;
+}
+
+.form__textarea:focus + .form__textarea-placeholder,
+.form__textarea:not(:placeholder-shown) + .form__textarea-placeholder {
+  top: -24px;
+}
+
+.form__input:not(:placeholder-shown):not(:focus) + .form__input-placeholder,
+.form__textarea:not(:placeholder-shown):not(:focus) + .form__textarea-placeholder {
+  color: var(--color-text-placeholder);
+}
+
+/* Стили для метки файла */
+.form__label-file {
+  display: block;
+  margin-bottom: 20px;
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+}
+
+.form__input-file {
+  display: none;
+}
+
+.form__file-text {
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+/* Стили для списка файлов */
+.form__file-list {
+  margin-bottom: 20px;
+}
+
+.form__file-list-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.form__file-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: var(--font-size-base);
+  color: var(--color-text-placeholder-focus);
+}
+
+.form__file-remove-button {
+  background: red;
+  border: none;
+  border-radius: 20px;
+  color: var(--color-button-white);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.form__file-remove-button:hover {
+  color: var(--color-button-hover);
+}
+
+/* Стили для метки согласия */
+.form__label-agree {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.form__input-checkbox {
+  margin-right: 10px;
+}
+
+.form__checkbox-text {
+  color: var(--color-text);
+}
+
+.form__link {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+/* Стили для кнопки отправки */
+.form__button {
+  padding: 10px;
+  background-color: var(--color-button);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 240px;
+}
+
+.form__button:hover {
+  background-color: var(--color-button-hover);
+}
+
+.form__button--disabled {
+  background-color: var(--color-button-disabled);
+  cursor: not-allowed;
+}
+
+.form__submit {
+  display: flex;
+  gap: 20px;
+}
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 768px) {
+  .form {
+    padding: 20px 10px;
+    max-width: 100%;
+  }
+
+  .form__textarea {
+    height: auto;
+  }
+
+  .form__submit {
+    flex-direction: column;
+  }
+}
+
+/* Стили для кнопки переключения формы и вопросов */
+.form__toggle-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #05AC6A;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 20px;
+  height: 20px;
+  width: 20px;
+  box-sizing: border-box;
+}
+
+/* Кнопка "Вернуться к заполнению формы" */
+.form__back-button {
+  background: none;
+  border: none;
+  color: var(--color-button);
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.form__back-button:hover {
+  color: var(--color-button-white);
+}
+
+/* Иконка для кнопки */
+.form__back-icon {
+  margin-right: 8px;
+}
+
+/* Кнопка "Вернуться к заполнению формы" */
+.form__back-button {
+  background-color: var(--color-button);
+  color: var(--color-button-white);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 10px 20px;
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.form__back-icon {
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
