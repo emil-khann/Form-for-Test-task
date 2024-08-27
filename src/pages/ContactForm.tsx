@@ -1,7 +1,6 @@
 import { useState, ChangeEvent, FormEvent, FC } from 'react';
 import './Form.css';
 
-// Определяем типы для данных формы
 interface FormData {
   name: string;
   company: string;
@@ -12,7 +11,7 @@ interface FormData {
   agree: boolean;
 }
 
-const Form: FC = () => {
+const ContactForm: FC = () => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     company: '',
@@ -236,4 +235,4 @@ const Form: FC = () => {
   );
 };
 
-export default Form;
+export default ContactForm;
